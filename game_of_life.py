@@ -3,3 +3,6 @@ class Game():
         self.a = a
         self.b = b
         self.cells = [[False for i in range(b)] for d in range(a)]
+
+    def get_cell(self, a, b):
+        return self.cells[a][b]
