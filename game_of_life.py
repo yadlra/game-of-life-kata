@@ -6,3 +6,6 @@ class Game():
 
     def get_cell(self, a, b):
         return self.cells[a][b]
+
+    def set_cell(self, a, b, value):
+        self.cells[a][b] = value
