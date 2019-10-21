@@ -29,18 +29,10 @@ class Game():
 
                 if self.cells[a][b]:
                     if neighbours == 2 or neighbours == 3:
-                        new_cells[a][b] = True 
-                    
+                        new_cells[a][b] = True
+
                     else:
                         if neighbours == 3:
                             new_cells[a][b] = True
 
-            self.cells = new_cells 
-
-
-
-        
-        
-
-
-    
+            self.cells = new_cells
