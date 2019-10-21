@@ -1,3 +1,4 @@
+// @ts-nocheck
 function make2DArray(cols, rows) {
     let arr = new Array(cols); //i first need some sort of array
     for (let i = 0; i < arr.length; i++) {
