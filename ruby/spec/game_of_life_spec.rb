@@ -24,6 +24,11 @@ describe 'game of life' do
         expect(subject.neighbours.count).to eq(1)
     end 
 
+    it "find neighbour to west" do
+        cell = subject.reproduce_at(-1, 0)
+        expect(subject.neighbours.count).to eq(1) 
+    end 
+
     it "dies" do
         subject.die!
         expect(subject.grid.cells).to_not include(subject)
@@ -31,10 +36,18 @@ describe 'game of life' do
   end 
         
 
-  it 'any live cell with less than 2 live neighbors, dies' do
+  it '1.any live cell with less than 2 live neighbors, dies' do
     cell = Cell.new(grid)
     new_cell = cell.reproduce_at(2,0)
     grid.tick!#when the seed goes through the tick the cell should be dead
     expect(cell).to be_dead
+  end 
+
+  it "2.any live cell has 2 or 3 live neighbors; next generation" do
+     cell = Cell.new(grid)
+     new_cell = cell.reproduce_at(1,0)
+     other_new_cell = cell.reproduce_at(-1,0)
+     grid.tick!
+     expect(cell).to be_alive
   end 
 end 

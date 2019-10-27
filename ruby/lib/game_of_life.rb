@@ -14,6 +14,11 @@ class Cell
 
     def dead?
         !grid.cells.include?(self)
+    end
+    
+    def alive?
+        binding.pry
+        grid.cells.include?(self)
     end 
 
     def neighbours
@@ -26,6 +31,10 @@ class Cell
             #northeast
             if self.x == cell.x - 1 && self.y == cell.y - 1
                 @neighbours << cell
+            end
+            #west
+            if self.x == cell.x + 1 && self.y == cell.y 
+                @neighbours << cell 
             end 
         end 
         @neighbours
@@ -46,7 +55,11 @@ class Grid
         cells.each do |cell|
             if cell.neighbours.count < 2
                 cell.die!
-            end  
+            end 
+            
+            # if cell.neighbours.count >= 2
+            #     cell.alive!
+            # end
         end 
     end 
 end 
