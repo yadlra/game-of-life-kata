@@ -18,6 +18,11 @@ describe 'game of life' do
       cell = subject.reproduce_at(0,1)
       expect(subject.neighbours.count).to eq(1)
     end
+
+    it "finds neighbour northeast" do
+        cell = subject.reproduce_at(1, 1)
+        expect(subject.neighbours.count).to eq(1)
+    end 
   end 
         
 

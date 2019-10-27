@@ -11,9 +11,14 @@ class Cell
     def neighbours
         @neighbours = []
         grid.cells.each do |cell| 
+            #north
              if self.x == cell.x && self.y == cell.y - 1
                 @neighbours << cell
-             end 
+             end
+            #northeast
+            if self.x == cell.x - 1 && self.y == cell.y - 1
+                @neighbours << cell
+            end 
         end 
         @neighbours
     end
