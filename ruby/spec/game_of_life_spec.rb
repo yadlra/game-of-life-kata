@@ -23,11 +23,18 @@ describe 'game of life' do
         cell = subject.reproduce_at(1, 1)
         expect(subject.neighbours.count).to eq(1)
     end 
+
+    it "dies" do
+        subject.die!
+        expect(subject.grid.cells).to_not include(subject)
+    end 
   end 
         
 
   it 'any live cell with less than 2 live neighbors, dies' do
     cell = Cell.new(grid)
-    expect(cell.neighbours.count).to eq(0)
+    new_cell = cell.reproduce_at(2,0)
+    grid.tick!#when the seed goes through the tick the cell should be dead
+    expect(cell).to be_dead
   end 
 end 

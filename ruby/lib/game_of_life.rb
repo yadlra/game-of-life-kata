@@ -8,6 +8,10 @@ class Cell
         grid.cells << self 
     end 
 
+    def die!
+        grid.cells -= [self]
+    end 
+
     def neighbours
         @neighbours = []
         grid.cells.each do |cell| 
@@ -32,5 +36,13 @@ class Grid
     attr_accessor :cells
     def initialize
         @cells = []
+    end 
+
+    def tick!
+        cells.each do |cell|
+            if cell.neighbours.count < 2
+                cell.die!
+            end  
+        end 
     end 
 end 
