@@ -12,6 +12,10 @@ class Cell
         grid.cells -= [self]
     end 
 
+    def dead?
+        !grid.cells.include?(self)
+    end 
+
     def neighbours
         @neighbours = []
         grid.cells.each do |cell| 
