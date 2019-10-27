@@ -16,7 +16,7 @@ describe 'game of life' do
 
     it "finds a neighbour north" do
       cell = subject.reproduce_at(0,1)
-      expect(cell.neighbours.count).to eq(1)
+      expect(subject.neighbours.count).to eq(1)
     end
   end 
         
