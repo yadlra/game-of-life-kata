@@ -3,7 +3,7 @@ require 'game_of_life.rb'
 describe 'game of life' do
     let(:grid) { Grid.new } 
   context "cell methods" do
-    subject { Cell.new }
+    subject { Cell.new(grid) }
 
     it "returns a cell object" do
       cell = subject.reproduce_at(3,5)
@@ -12,12 +12,13 @@ describe 'game of life' do
       expect(cell.y).to eq 5
       expect(cell.grid).to eq subject.grid
     end 
-  end 
+  
 
-  it "finds a neighbour north" do
-    cell = subject.reproduce_at(0, 1)
-    expect(subject.neighbours.count).to eq(1)
-  end
+    it "finds a neighbour north" do
+      cell = subject.reproduce_at(0,1)
+      expect(cell.neighbours.count).to eq(1)
+    end
+  end 
         
 
   it 'any live cell with less than 2 live neighbors, dies' do

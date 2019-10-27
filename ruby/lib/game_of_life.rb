@@ -20,7 +20,6 @@ class Cell
     
     def reproduce_at(x, y)
         Cell.new(grid, x, y)
-    
     end 
 end 
 
